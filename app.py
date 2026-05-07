@@ -156,8 +156,7 @@ def handle_dialog(res, req):
         return
 
     curr = state['current']
-
-    # ==================== ДОБАВЛЕНА КОМАНДА ПРОПУСКА ВОПРОСА (СТРОКА 40) ====================
+    
     # Команда пропуска текущего вопроса (без начисления очков, без занесения в историю)
     if 'пропустить' in command or 'пропусти' in command or 'скип' in command or 'skip' in command:
         state['history'].append({'answer': curr['answer'], 'points': 0, 'skipped': True})
@@ -168,8 +167,7 @@ def handle_dialog(res, req):
             {'title': 'Выход', 'hide': True}
         ]
         return
-    # ========================================================================================
-
+        
     # Основные команды
     # Команда завершения ребуса
     if 'выход' in command or 'хватит' in command:
